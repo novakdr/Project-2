@@ -3,6 +3,11 @@ body {
   background: pink; 
 }
 
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+}
+
 h1 {
   font-size: 60px;
   text-transform: uppercase; 
@@ -12,5 +17,5 @@ button {
   background: none;
   padding: 10px;
   border: 2px solid grey;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
