@@ -22,8 +22,7 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   background: var(--dark-teal);
-  padding: 0;
-  height: 90vh;
+  height: 100vh;
   clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
 }
 
@@ -32,11 +31,17 @@ nav {
   grid-template-columns: auto 1fr;
   align-items: center;
   margin-right: 200px;
+  padding-top: 20px;
 }
 
 nav > .logo__small {
   display: grid;
   padding-left: 50px;
+}
+
+.logo__small > img {
+  height: 70px;
+  width: 150px;
 }
 
 nav > .links {
@@ -45,16 +50,17 @@ nav > .links {
 }
 
 .links > a {
+  font-size: 18px;
   text-decoration: none;
   text-transform: uppercase;
   color: white;
   text-align: center;
-  padding-right: 80px;
+  padding-right: 60px;
 }
 
 .cta {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 1fr 1fr;
   place-items: center center;
   z-index: 1;
 }
@@ -64,13 +70,14 @@ nav > .links {
   justify-items: center;
   text-align: center;
   padding-left: 50px;
+  font-size: 30px;
 }
 
 .heading > button {
   background: coral;
   border: 2px solid black;
   border-radius: 10px;
-  font-size: 30px;
+  font-size: 40px;
   color: white;
   padding: 5px 20px;
 }
@@ -80,7 +87,7 @@ nav > .links {
   width: 100vw;
   background: var(--light-teal);
   position: absolute;
-  bottom: 200px;
+  bottom: 152px;
 }
 
 .medium__background {
@@ -88,7 +95,7 @@ nav > .links {
   width: 100vw;
   background: var(--medium-teal);
   position: absolute;
-  bottom: 180px;
+  bottom: 132px;
 }
 
 .section__container {
