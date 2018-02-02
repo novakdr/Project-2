@@ -20,10 +20,10 @@ body {
 
 .masthead {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: 80px 1fr;
   background: var(--dark-teal);
   padding: 0;
-  height: 90vh;
+  height: 95vh;
   clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
 }
 
@@ -37,6 +37,11 @@ nav {
 nav > .logo__small {
   display: grid;
   padding-left: 50px;
+}
+
+.logo__small > img {
+  width: 140px;
+  height: 60px;
 }
 
 nav > .links {
@@ -54,7 +59,7 @@ nav > .links {
 
 .cta {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: 1fr 1fr;
   place-items: center center;
   z-index: 1;
 }
@@ -64,6 +69,7 @@ nav > .links {
   justify-items: center;
   text-align: center;
   padding-left: 50px;
+  font-size: 30px;
 }
 
 .heading > button {
@@ -80,7 +86,7 @@ nav > .links {
   width: 100vw;
   background: var(--light-teal);
   position: absolute;
-  bottom: 200px;
+  bottom: 175px;
 }
 
 .medium__background {
@@ -88,7 +94,7 @@ nav > .links {
   width: 100vw;
   background: var(--medium-teal);
   position: absolute;
-  bottom: 180px;
+  bottom: 155px;
 }
 
 .section__container {
