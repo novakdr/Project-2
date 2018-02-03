@@ -134,3 +134,12 @@ a > .button {
   height: 20vh;
   width: 100vw;
 }
+
+.section__container < img {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  width: 40px;
+  height: auto;
+
+}
