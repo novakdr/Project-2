@@ -23,7 +23,7 @@ body {
   grid-template-rows: auto 1fr;
   background: var(--dark-teal);
   background-image: radial-gradient(#afeeee,#549D90 );
-  height: 700px;
+  height: 650px;
   clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
 
 }
@@ -44,7 +44,7 @@ nav > .logo__small {
 
 .logo__small > img {
   height: auto;
-  width: 150px;
+  width: 120px;
 }
 
 nav > .links {
