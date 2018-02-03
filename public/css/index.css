@@ -108,11 +108,11 @@ a > .button {
 .background {
   position: relative;
 }
+
 .light {
   height: 70px;
   width: 100vw;
   background: var(--light-teal);
- /* position: absolute;*/
   bottom: 220px;
   z-index: -2;
 }
@@ -121,7 +121,6 @@ a > .button {
   height: 20px;
   width: 100vw;
   background: var(--medium-teal);
-  /*position: absolute;*/
   bottom: 130px;
   z-index: -1;
 }
