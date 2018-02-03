@@ -58,7 +58,6 @@ nav > .links {
   padding-right: 60px;
 }
 
-/* ADDED LINK HOVER NOT PUSHED YET */
 .links > a:hover {
   color: coral;
 }
@@ -75,46 +74,56 @@ nav > .links {
   justify-items: center;
   text-align: center;
   padding-left: 50px;
-  font-size: 30px;
+  font-size: 40px;
+  grid-gap: 30px;
+  margin-top: 50px;
 }
 
-.heading > button {
+.button {
   background: coral;
   border: 2px solid black;
   border-radius: 10px;
   font-size: 40px;
   color: white;
   padding: 5px 20px;
-}
-
-/* ADDED HOVER NOT PUSHED YET */
-button > a {
-  text-decoration: none;
-  color: white;
-}
-
-.heading > button:hover {
-  cursor: pointer;
   position: relative;
   top: -2px;
   left: -2px;
   box-shadow: 4px 4px 0 rgba(60, 60, 60, 0.2), 4px 4px 0 rgba(60, 60, 60, 0.2)
 }
 
-.light__background {
+a > .button {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.button:hover {
+  cursor: pointer;
+  top: 0px;
+  left: 0px;
+  box-shadow: none;
+}
+
+.background {
+  position: relative;
+}
+.light {
   height: 70px;
   width: 100vw;
   background: var(--light-teal);
-  position: absolute;
-  bottom: 152px;
+ /* position: absolute;*/
+  bottom: 220px;
+  z-index: -2;
 }
 
-.medium__background {
+.medium {
   height: 20px;
   width: 100vw;
   background: var(--medium-teal);
-  position: absolute;
-  bottom: 132px;
+  /*position: absolute;*/
+  bottom: 130px;
+  z-index: -1;
 }
 
 .section__container {
