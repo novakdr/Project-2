@@ -58,6 +58,11 @@ nav > .links {
   padding-right: 60px;
 }
 
+/* ADDED LINK HOVER NOT PUSHED YET */
+.links > a:hover {
+  color: coral;
+}
+
 .cta {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -80,6 +85,20 @@ nav > .links {
   font-size: 40px;
   color: white;
   padding: 5px 20px;
+}
+
+/* ADDED HOVER NOT PUSHED YET */
+button > a {
+  text-decoration: none;
+  color: white;
+}
+
+.heading > button:hover {
+  cursor: pointer;
+  position: relative;
+  top: -2px;
+  left: -2px;
+  box-shadow: 4px 4px 0 rgba(60, 60, 60, 0.2), 4px 4px 0 rgba(60, 60, 60, 0.2)
 }
 
 .light__background {
