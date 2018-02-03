@@ -1,0 +1,133 @@
+/* VARIABLES */
+:root {
+  --dark-teal: #549D90;
+  --light-teal: #74B9AC;
+  --medium-teal: #5aaa9c;
+  --grey: #4F4C4C;
+}
+
+body {
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background: var(--grey);
+}
+
+.body__wrapper {
+  display: grid;
+}
+
+.masthead {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--dark-teal);
+  height: 700px;
+  clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
+}
+
+nav {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-right: 200px;
+  padding-top: 20px;
+}
+
+nav > .logo__small {
+  display: grid;
+  padding-left: 50px;
+}
+
+.logo__small > img {
+  height: 70px;
+  width: 150px;
+}
+
+nav > .links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.links > a {
+  font-size: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  padding-right: 60px;
+}
+
+.links > a:hover {
+  color: coral;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center center;
+  z-index: 1;
+}
+
+.heading {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding-left: 50px;
+  font-size: 40px;
+  grid-gap: 30px;
+  margin-top: 50px;
+}
+
+.button {
+  background: coral;
+  border: 2px solid black;
+  border-radius: 10px;
+  font-size: 40px;
+  color: white;
+  padding: 5px 20px;
+  position: relative;
+  top: -2px;
+  left: -2px;
+  box-shadow: 4px 4px 0 rgba(60, 60, 60, 0.2), 4px 4px 0 rgba(60, 60, 60, 0.2)
+}
+
+a > .button {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.button:hover {
+  cursor: pointer;
+  top: 0px;
+  left: 0px;
+  box-shadow: none;
+}
+
+.background {
+  position: relative;
+}
+.light {
+  height: 70px;
+  width: 100vw;
+  background: var(--light-teal);
+ /* position: absolute;*/
+  bottom: 220px;
+  z-index: -2;
+}
+
+.medium {
+  height: 20px;
+  width: 100vw;
+  background: var(--medium-teal);
+  /*position: absolute;*/
+  bottom: 130px;
+  z-index: -1;
+}
+
+.section__container {
+  background: var(--grey);
+  height: 20vh;
+  width: 100vw;
+}
