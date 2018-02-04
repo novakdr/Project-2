@@ -1,19 +1,25 @@
-const Find = require("../models/find.js"); 
+//const Find = require("../models/find.js"); 
+var db = require("../models");
 
 module.exports = (app) => {
 
     app.get("/api/:item?", (req, res) => {
-      if (req.params.item){
-        Find.findOne({
+      
+      //Trim the extra spaces and stuff from the requested item
+      var strippedItemSearchName = req.params.item.replace(/\s+/g, "").toLowerCase();
+
+
+      if (strippedItemSearchName){
+        db.Find.findAll({
           where:{
-            item: req.params.item
+            item: strippedItemSearchName
           }
         }).then((result) => {
           return res.json(result);
         }); 
       }
       else {
-        Find.findAll({}).then((result) => {
+        db.Find.findAll({}).then((result) => {
           return res.json(result);
         });
       }
@@ -23,17 +29,23 @@ module.exports = (app) => {
         
         const find = req.body;
     
-        let routeName = Find.item.replace(/\s+/g, "").toLowerCase();
+        //let routeName = Find.item.replace(/\s+/g, "").toLowerCase();
         
-        Find.create({
-          routeName: routeName,
+        // Strip the spaces and extra white space from the passed in item name
+
+        var shortItemName = find.item.replace(/\s+/g, "").toLowerCase();
+
+        db.Find.create({
+          //routeName: routeName,
           user: find.user,
-          item: find.item,
+          item: shortItemName,
           description: find.description,
-          longitutde: find.longitutde,
+          longitude: find.longitude,
           lattitude:find.lattitude,
           reward: find.reward,
           isLost: find.isLost
         });
+
+        res.send(true);
       });
 }
