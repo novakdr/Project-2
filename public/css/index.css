@@ -22,26 +22,29 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   background: var(--dark-teal);
-  height: 700px;
+  background-image: radial-gradient(#afeeee,#549D90 );
+  height: 650px;
   clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
+
 }
 
 nav {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  margin-right: 200px;
-  padding-top: 20px;
+  /*margin-right: 200px;*/
+  /*padding-top: 20px;*/
+  background-color: var(--grey);
 }
 
 nav > .logo__small {
   display: grid;
-  padding-left: 50px;
+  padding:5px 0 5px 50px;
 }
 
 .logo__small > img {
-  height: 70px;
-  width: 150px;
+  height: auto;
+  width: 120px;
 }
 
 nav > .links {
@@ -50,7 +53,7 @@ nav > .links {
 }
 
 .links > a {
-  font-size: 18px;
+  font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
   color: white;
@@ -83,6 +86,7 @@ nav > .links {
   background: coral;
   border: 2px solid black;
   border-radius: 10px;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
   font-size: 40px;
   color: white;
   padding: 5px 20px;
@@ -108,11 +112,11 @@ a > .button {
 .background {
   position: relative;
 }
+
 .light {
   height: 70px;
   width: 100vw;
   background: var(--light-teal);
- /* position: absolute;*/
   bottom: 220px;
   z-index: -2;
 }
@@ -121,7 +125,6 @@ a > .button {
   height: 20px;
   width: 100vw;
   background: var(--medium-teal);
-  /*position: absolute;*/
   bottom: 130px;
   z-index: -1;
 }
@@ -130,4 +133,13 @@ a > .button {
   background: var(--grey);
   height: 20vh;
   width: 100vw;
+}
+
+.section__container < img {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  width: 40px;
+  height: auto;
+
 }
