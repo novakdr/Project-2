@@ -3,6 +3,9 @@
 <script type="text/javascript">
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (p) {
+        console.log("Detected Latitiude is " + p.coords.latitude);
+        console.log("Detected Longitude is " + p.coords.longitude);
+
         var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
         var mapOptions = {
             center: LatLng,
@@ -37,6 +40,9 @@ if (navigator.geolocation) {
 //           map: map
 //         });
 //       }
+
+
+
 
 </script>
 <div id="dvMap" style="width: 100%; height: 500px">

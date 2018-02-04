@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.TEXT
         },
         longitude: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.STRING
         },
         lattitude: {
-            type: DataTypes.DECIMAL
+            type: DataTypes.STRING
         },
         reward: {
             type: DataTypes.INTEGER,
