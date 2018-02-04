@@ -3,6 +3,14 @@ var db = require("../models");
 
 module.exports = (app) => {
 
+  app.get("/api/getAllItems", (req, res) => {
+      
+  
+    db.Find.findAll({}).then((result) => {
+      res.json(result);
+    });
+});
+
     app.get("/api/:item?", (req, res) => {
       
       //Trim the extra spaces and stuff from the requested item
@@ -23,7 +31,9 @@ module.exports = (app) => {
           return res.json(result);
         });
       }
-    }); 
+    });
+    
+    
 
     app.post("/api/new", (req, res) => {
         
