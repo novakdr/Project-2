@@ -1,16 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Let's Find Map</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="./css/map.css">
-</head>
-<body>
-    <h1>This is a test</h1>
-    
-</body>
-</html>
+<!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBheQz2cT4U5Sx5vt2yniH8mayPRJCKVLI&callback=initMap"></script> -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBheQz2cT4U5Sx5vt2yniH8mayPRJCKVLI&libraries=places"></script>
+<script type="text/javascript">
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (p) {
+        var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+        var mapOptions = {
+            center: LatLng,
+            zoom: 40,
+            //mapTypeId: google.maps.MapTypeId.ROADMAP
+            mapTypeId: 'hybrid'
+        };
+        var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+        // var marker = new google.maps.Marker({
+        //     position: LatLng,
+        //     map: map,
+        //     title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + p.coords.latitude + "<br />Longitude: " + p.coords.longitude
+        // });
+        // google.maps.event.addListener(marker, "click", function (e) {
+        //     var infoWindow = new google.maps.InfoWindow();
+        //     infoWindow.setContent(marker.title);
+        //     infoWindow.open(map, marker);
+        // });
+    });
+} else {
+    alert('Geo Location feature is not supported in this browser.');
+}
+//gofunction
+// function initMap() {
+//         var uluru = {lat: -25.363, lng: 131.044};
+//         var map = new google.maps.Map(document.getElementById('map'), {
+//           zoom: 4,
+//           center: uluru
+//         });
+//         var marker = new google.maps.Marker({
+//           position: uluru,
+//           map: map
+//         });
+//       }
+
+</script>
+<div id="dvMap" style="width: 100%; height: 500px">
+</div>
