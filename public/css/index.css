@@ -32,8 +32,6 @@ nav {
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  /*margin-right: 200px;*/
-  /*padding-top: 20px;*/
   background-color: var(--grey);
 }
 
@@ -81,20 +79,6 @@ nav > .links {
   grid-gap: 30px;
   margin-top: 50px;
 }
-
-/*.button {
-  background: coral;
-  border: 2px solid black;
-  border-radius: 10px;
-  font-family: 'Arial Rounded MT Bold', sans-serif;
-  font-size: 40px;
-  color: white;
-  padding: 5px 20px;
-  position: relative;
-  top: -2px;
-  left: -2px;
-  box-shadow: 4px 4px 0 rgba(60, 60, 60, 0.2), 4px 4px 0 rgba(60, 60, 60, 0.2)
-}*/
 
 .globe {
   margin-right:20px;
@@ -1092,19 +1076,4 @@ svg:hover line:nth-child(even) {
   background: var(--medium-teal);
   bottom: 130px;
   z-index: -1;
-}
-
-.section__container {
-  background: var(--grey);
-  height: 20vh;
-  width: 100vw;
-}
-
-.section__container < img {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  width: 40px;
-  height: auto;
-
 }
