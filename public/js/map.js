@@ -71,6 +71,7 @@ if (navigator.geolocation) {
 //         });
 //       }
 
+// BUTTONS AND MODAL STUFF
 $('#find__button').on('click', function() {
     $('#find__modal')[0].showModal();
 });

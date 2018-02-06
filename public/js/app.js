@@ -1,6 +1,16 @@
-// IGNORE THIS. ONLY TEST
-const button = document.querySelector("#click-me");
-
-button.addEventListener('click', () => {
-    console.log("Click!");
+$(function() {
+    smoothScroll(700);
 });
+
+function smoothScroll(duration) {
+    $('a[href^="#"]').on('click', function (event) {
+        var target = $($(this).attr('href'));
+
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top
+            }, duration);
+        }
+    });
+}
