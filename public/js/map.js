@@ -33,21 +33,42 @@ if (navigator.geolocation) {
             console.log(data);
             
             //Use data from API call to build markers
-            for(var i=0; i < data.length; i++){
+            // for(var i=0; i < data.length; i++){
+            //     var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);
+            //     var loopMarker = new google.maps.Marker({
+            //         position: LatLngLoopMarker,
+            //         map: map,
+            //         title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + data[i].lat + "<br />Longitude: " + data[i].lng
+            //     });
+
+            //     google.maps.event.addListener(loopMarker, "click", function (e) {
+            //         var infoWindow = new google.maps.InfoWindow();
+            //         infoWindow.setContent(loopMarker.title);
+            //         infoWindow.open(map, loopMarker);
+            //     });
+
+            // }
+
+
+            function makeLoopMarker(i) {
                 var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);
                 var loopMarker = new google.maps.Marker({
-                position: LatLngLoopMarker,
-                map: map,
-                title: "<div style = 'height:60px;width:200px'><b>Your location:</b><br />Latitude: " + data[i].lat + "<br />Longitude: " + data[i].lng
+                  position: LatLngLoopMarker,
+                  map: map,
+                  title: "<div style = 'height:60px;width:200px;color:black;'><b>Your location:</b><br />Latitude: " + data[i].lat + "<br />Longitude: " + data[i].lng
                 });
-
+                
                 google.maps.event.addListener(loopMarker, "click", function (e) {
-                var infoWindow = new google.maps.InfoWindow();
-                infoWindow.setContent(loopMarker.title);
-                infoWindow.open(map, loopMarker);
-        });
-
-            }
+                  var infoWindow = new google.maps.InfoWindow();
+                  infoWindow.setContent(loopMarker.title);
+                  infoWindow.open(map, loopMarker);
+                });
+              }  
+              
+              for(var i=0; i < data.length; i++){
+                makeLoopMarker(i);
+              
+              }
 
             
         });
@@ -71,5 +92,28 @@ if (navigator.geolocation) {
 //         });
 //       }
 
+// BUTTONS AND MODAL STUFF
+$('#find__button').on('click', function() {
+    $('#find__modal')[0].showModal();
+});
 
+$('#lost__button').on('click', () => {
+    $('#lost__modal')[0].showModal();
+})
+
+$('#submit__find').on('click', () => {
+    $('#find__modal')[0].close();
+});
+
+$('#submit__lost').on('click', () => {
+    $('#lost__modal')[0].close();
+});
+
+$('#random__button').on('click', () => {
+    $('#random__modal')[0].showModal();
+});
+
+$('#submit__random').on('click', () => {
+    $('#random__modal')[0].close();
+});
 
