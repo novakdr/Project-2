@@ -6,7 +6,11 @@
   }
   
 body {
-    background: var(--dark-teal);
+  color: white;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background: var(--grey);
 }
 
 .body__wrapper {
@@ -80,21 +84,6 @@ body {
     background: var(--medium-teal);
     bottom: 130px;
     z-index: -1;
-  }
-  
-  .section__container {
-    background: var(--grey);
-    height: 20vh;
-    width: 100vw;
-  }
-  
-  .section__container < img {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    width: 40px;
-    height: auto;
-  
   }
 
   
