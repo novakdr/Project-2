@@ -1078,4 +1078,25 @@ svg:hover line:nth-child(even) {
   z-index: -1;
 }
 
+/* ABOUT SECTION */
+.about__section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 50px 20px;
+  grid-gap: 30px;
+}
+
+.about__section > .about__items {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  place-items: center center;
+  grid-gap: 30px;
+  text-align: center;
+}
+
+.about__items > img {
+  width: 150px;
+  height: 150px;
+}
+
 @media screen and (min-width: )
