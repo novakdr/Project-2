@@ -132,7 +132,7 @@ svg{
   margin: -20px 0 0 -60px;
 }
 .cont button {
-  margin-left:20px;
+  margin-left:30px;
   margin-top:60px;
   border: 2px solid black;
   background-color: transparent;
@@ -144,12 +144,13 @@ svg{
   text-decoration: none;
   font-family: 'Arial Rounded MT Bold';
   font-size: 40px;
-  box-shadow: 4px 4px 0 rgba(60, 60, 60, 0.2), 4px 4px 0 rgba(60, 60, 60, 0.2);
+  box-shadow: 5px 5px 0 rgba(60, 60, 60, 0.2), 4px 4px 0 rgba(60, 60, 60, 0.2);
   color: white;
   transition: all 0.3s;
+
 }
 .cont button:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   color: coral;
 }
 .cont button:hover ~ svg > line:nth-child(odd) {
@@ -164,7 +165,7 @@ svg{
 svg {
   overflow: visible;
   margin-top:60px;
-  margin-left:20px;
+  margin-left:29px;
 }
 svg line {
   stroke: coral;
