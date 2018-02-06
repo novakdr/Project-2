@@ -71,5 +71,27 @@ if (navigator.geolocation) {
 //         });
 //       }
 
+$('#find__button').on('click', function() {
+    $('#find__modal')[0].showModal();
+});
 
+$('#lost__button').on('click', () => {
+    $('#lost__modal')[0].showModal();
+})
+
+$('#submit__find').on('click', () => {
+    $('#find__modal')[0].close();
+});
+
+$('#submit__lost').on('click', () => {
+    $('#lost__modal')[0].close();
+});
+
+$('#random__button').on('click', () => {
+    $('#random__modal')[0].showModal();
+});
+
+$('#submit__random').on('click', () => {
+    $('#random__modal')[0].close();
+});
 
