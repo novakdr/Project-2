@@ -106,7 +106,43 @@ $('#submit__find').on('click', () => {
 });
 
 $('#submit__lost').on('click', () => {
-    $('#lost__modal')[0].close();
+    event.preventDefault();
+    var lostName = $("#lostName").val().trim();
+    var lostItem = $("#lostItem").val().trim();
+    var lostDescription = $("#lostDescription").val().trim();
+    var lostLat = $("#lostLat").val().trim();
+    var lostLong = $("#lostLong").val().trim();
+    
+    console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
+  
+
+    // POST route for saving a new lost item to the database
+    // isLost default value is "TRUE" for the submit_lost modal
+    $.post({
+        url: '/api/new',
+        data: {user: lostName, item: lostItem, description: lostDescription, longitude:lostLong, lattitude:lostLat, reward:0, isLost:true} ,
+        //contentType: 'application/json; charset=utf-8',
+        // success: function (response) {
+        //     alert(response.status);
+        // },
+        // error: function () {
+        //     alert("error");
+        // }
+
+    }).then(function(response){
+        console.log(response);
+    })
+
+    $("#lostName").val('');
+    $("#lostItem").val('');
+    $("#lostDescription").val('');
+    $("#lostLat").val('');
+    $("#lostLong").val('');
+
+  $('#lost__modal')[0].close();
+
+
+    
 });
 
 $('#random__button').on('click', () => {
@@ -116,4 +152,7 @@ $('#random__button').on('click', () => {
 $('#submit__random').on('click', () => {
     $('#random__modal')[0].close();
 });
+
+
+
 
