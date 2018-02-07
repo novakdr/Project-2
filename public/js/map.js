@@ -81,28 +81,11 @@ if (navigator.geolocation) {
                 makeLoopMarker(i);
               
               }
-
-            
         });
-
-
-
     });
 } else {
     alert('Geo Location feature is not supported in this browser.');
 }
-//gofunction
-// function initMap() {
-//         var uluru = {lat: -25.363, lng: 131.044};
-//         var map = new google.maps.Map(document.getElementById('map'), {
-//           zoom: 4,
-//           center: uluru
-//         });
-//         var marker = new google.maps.Marker({
-//           position: uluru,
-//           map: map
-//         });
-//       }
 
 // BUTTONS AND MODAL STUFF
 $('#find__button').on('click', function() {
@@ -111,10 +94,6 @@ $('#find__button').on('click', function() {
 
 $('#lost__button').on('click', () => {
     $('#lost__modal')[0].showModal();
-})
-
-$('#submit__find').on('click', () => {
-    $('#find__modal')[0].close();
 });
 
 $('#submit__lost').on('click', () => {
@@ -132,39 +111,20 @@ $('#submit__lost').on('click', () => {
     // isLost default value is "TRUE" for the submit_lost modal
     $.post({
         url: '/api/new',
-        data: {user: lostName, item: lostItem, description: lostDescription, longitude:lostLong, lattitude:lostLat, reward:0, isLost:true} ,
-        //contentType: 'application/json; charset=utf-8',
-        // success: function (response) {
-        //     alert(response.status);
-        // },
-        // error: function () {
-        //     alert("error");
-        // }
-
+        data: {user: lostName, item: lostItem, description: lostDescription, longitude:lostLong, lattitude:lostLat, reward:0, isLost:true}
     }).then(function(response){
         console.log(response);
     })
 
+    // CLEARS LOST MODAL
     $("#lostName").val('');
     $("#lostItem").val('');
     $("#lostDescription").val('');
     $("#lostLat").val('');
     $("#lostLong").val('');
-
-  $('#lost__modal')[0].close();
-
-
-    
 });
 
-$('#random__button').on('click', () => {
-    $('#random__modal')[0].showModal();
+$('.close').on('click', () => {
+    $('#lost__modal')[0].close();
+    $('#find__modal')[0].close();
 });
-
-$('#submit__random').on('click', () => {
-    $('#random__modal')[0].close();
-});
-
-
-
-
