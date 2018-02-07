@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="./css/reset.css">
 	<!-- CUSTOM CSS -->
     <link rel="stylesheet" href="./css/map.css">
+	<!-- ANIMATE (LIBRARY) CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="./assets/image/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./assets/image/favicon-16x16.png" sizes="16x16" />
@@ -41,13 +43,15 @@
         </div>
 
         <!-- BUTTON SECTION -->
-        <div class="button__section">
+        <div class="button__section animated bounceInLeft">
+
             <a id='find__button'>
-                <img src='../assets/buttons/found_button.png'>
+                <img src='./assets/buttons/lost_button.png'>
             </a>
             <a id='lost__button'>
-                <img src="../assets/buttons/lost_button.png">
+                <img src="./assets/buttons/found_button.png">
             </a>
+
         </div>
 
         <!-- MODALS FOR BUTTONS -->
@@ -55,17 +59,19 @@
             <div class="close">x</div>
             <h4 class='modal__header'>Found</h4>
             <form id='form__section' action="">
-                <label for="findName">Name</label>
-                <input type="text" id="findName">
+
+                <label for="findName">Email</label>
+                <input type="text" id="findName" placeholder="Someone@Example.com" required>
                 <label for="findItem">Item</label>
-                <input type="text" id="findItem">
+                <input type="text" id="findItem" placeholder="Item Found" required>
                 <label for="findDescription">Description</label>
-                <input type="text" id="findDescription">
+                <input type="text" id="findDescription" placeholder="Description of Lost Found" required>
                 <label for="findLat">Lattitude</label>
                 <input type="text" id="findLat">
                 <label for="findLong">Longitude</label>
                 <input type="text" id="findLong">
                 <button id="submit__find">Submit</button>
+
             </form>
         </dialog>
 
@@ -73,17 +79,24 @@
             <div class="close">x</div>
             <h4 class='modal__header'>Lost</h4>
             <form id='form__section' action="">
-                <label for="lostName">Name</label>
-                <input type="text" id="lostName">
+
+                <label for="lostName">Email</label>
+                <input type="text" id="lostName" placeholder="someone@example.com" required>
                 <label for="lostItem">Item</label>
-                <input type="text" id="lostItem">
+                <input type="text" id="lostItem" placeholder="Item Lost" required>
                 <label for="lostDescription">Description</label>
-                <input type="text" id="lostDescription">
+                <input type="text" id="lostDescription" placeholder="Description of Lost Item" required>
+                <!-- <label for="location">Location</label>
+                <input type="text" id="autocomplete" class="aucontainer" placeholder="Location Item Was Last Seen" required> -->
                 <label for="lostLat">Lattitude</label>
                 <input type="text" id="lostLat">
                 <label for="lostLong">Longitude</label>
                 <input type="text" id="lostLong">
+                <label for="reward">Reward</label>
+                <input type="text" id="reward" placeholder="Reward For Finding Item" >
                 <button id="submit__lost">Submit</button>
+
+
             </form>
         </dialog>
 
