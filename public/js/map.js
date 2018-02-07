@@ -103,6 +103,7 @@ $('#submit__lost').on('click', () => {
     var lostDescription = $("#lostDescription").val().trim();
     var lostLat = $("#lostLat").val().trim();
     var lostLong = $("#lostLong").val().trim();
+    var reward = $("#reward").val(); 
     
     console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
   
@@ -122,6 +123,8 @@ $('#submit__lost').on('click', () => {
     $("#lostDescription").val('');
     $("#lostLat").val('');
     $("#lostLong").val('');
+    $("#lostLong").val('');
+    $("#reward").val(''); 
 });
 
 $('.close').on('click', () => {
