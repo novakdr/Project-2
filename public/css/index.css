@@ -99,7 +99,6 @@ a > .button {
   box-shadow: none;
 }
 
-
 .cont, .cont > button, svg {
   height: 84px;
   width: 298px;
@@ -1104,7 +1103,13 @@ svg:hover line:nth-child(even) {
   height: 100px;
 }
 
+<<<<<<< HEAD
 
 
 
 @media screen and (min-width: )
+=======
+@media screen and (min-width: ) {
+  
+}
+>>>>>>> 1ae7804b878a33d12d88fc75288ea14fcde5a793

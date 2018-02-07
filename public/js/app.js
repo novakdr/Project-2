@@ -1,3 +1,4 @@
+// SMOOTH SCROLL FUNCTION
 $(function() {
     smoothScroll(700);
 });
