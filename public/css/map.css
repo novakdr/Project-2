@@ -17,98 +17,146 @@ body {
     display: grid;
   }
   
-  .masthead {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    background: var(--dark-teal);
-    background-image: radial-gradient(#afeeee,#549D90 );
-    height: 650px;
-    clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
-  
-  }
-  nav {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    /*margin-right: 200px;*/
-    /*padding-top: 20px;*/
-    background-color: var(--grey);
-  }
-  
-  nav > .logo__small {
-    display: grid;
-    padding:5px 0 5px 50px;
-  }
-  
-  .logo__small > img {
-    height: auto;
-    width: 120px;
-  }
-  
-  nav > .links {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .links > a {
-    font-size: 14px;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-    padding-right: 60px;
-  }
-  
-  .links > a:hover {
-    color: coral;
-  }
-  
-  .cta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center center;
-    z-index: 1;
-  }
+.masthead {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: var(--dark-teal);
+  background-image: radial-gradient(#afeeee,#549D90 );
+  height: 650px;
+  clip-path: polygon(-490% 0, 100% 0, 100% 90%, 50% 100%);
+}
 
-  .light {
-    height: 70px;
-    width: 100vw;
-    background: var(--light-teal);
-    bottom: 220px;
-    z-index: -2;
-  }
-  
-  .medium {
-    height: 20px;
-    width: 100vw;
-    background: var(--medium-teal);
-    bottom: 130px;
-    z-index: -1;
-  }
+nav {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  /*margin-right: 200px;*/
+  /*padding-top: 20px;*/
+  background-color: var(--grey);
+}
 
-  .button__section {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    place-items: center center;
-    padding: 50px;
-  }
+nav > .logo__small {
+  display: grid;
+  padding:5px 0 5px 50px;
+}
 
-  .button__section > button {
-    padding: 10px 15px;
-    background: coral;
-    border: 2px solid black;
-    border-radius: 5px;
-    color: white;
-    font-size: 24px;
-  }
+.logo__small > img {
+  height: auto;
+  width: 120px;
+}
 
-  #form__section {
-    width: 500px;
-    height: 500px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: 1fr;
-  }
+nav > .links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.links > a {
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  padding-right: 60px;
+}
+
+.links > a:hover {
+  color: coral;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center center;
+  z-index: 1;
+}
+
+.light {
+  height: 70px;
+  width: 100vw;
+  background: var(--light-teal);
+  bottom: 220px;
+  z-index: -2;
+}
+
+.medium {
+  height: 20px;
+  width: 100vw;
+  background: var(--medium-teal);
+  bottom: 130px;
+  z-index: -1;
+}
+
+.button__section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  place-items: center center;
+  padding: 50px;
+}
+
+.button__section > a > img {
+  width: 250px;
+  height: 250px;
+}
+
+.button__section > a:hover {
+  cursor: pointer;
+  position: relative;
+  top: -8px;
+}
+
+dialog {
+  padding: 0px;
+  position: fixed;
+  padding-bottom: 20px;
+}
+
+#form__section {
+  width: 500px;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
+  align-items: center;
+  padding: 10px;
+}
+
+.close {
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 3px;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+.modal__header {
+  background: coral;
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+}
+
+input[type=text] {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 5px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#form__section > button {
+  background: var(--light-teal);
+  border: 2px solid black;
+  padding: 10px 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
 
   

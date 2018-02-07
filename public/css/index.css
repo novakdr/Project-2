@@ -98,7 +98,6 @@ a > .button {
   box-shadow: none;
 }
 
-
 .cont, .cont > button, svg {
   height: 84px;
   width: 298px;
@@ -1099,4 +1098,6 @@ svg:hover line:nth-child(even) {
   height: 150px;
 }
 
-@media screen and (min-width: )
+@media screen and (min-width: ) {
+  
+}
