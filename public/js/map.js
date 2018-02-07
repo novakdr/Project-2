@@ -11,6 +11,20 @@ if (navigator.geolocation) {
             mapTypeId: 'hybrid'
         };
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+           //USE FOR PLACES AUTOCOMPLETE WHEN READY--- works but autocomplete pops up behind the modal still
+        // var input = document.getElementById('autocomplete');
+        // var autocomplete = new google.maps.places.Autocomplete(input);
+        // var pacContainerInitialized = false; 
+
+        // $('#autocomplete').keypress(function() { 
+        //         if (!auContainerInitialized) { 
+        //                 $('.aucontainer').css('z-index', '9999'); 
+        //                 auContainerInitialized = true; 
+        //         } 
+        // }); 
+
+
+        
         // var marker = new google.maps.Marker({
         //     position: LatLng,
         //     map: map,
@@ -22,9 +36,7 @@ if (navigator.geolocation) {
         //     var infoWindow = new google.maps.InfoWindow();
         //     infoWindow.setContent(marker.title);
         //     infoWindow.open(map, marker);
-        // });
-
-
+        // })
 
 
 
@@ -48,7 +60,7 @@ if (navigator.geolocation) {
             //     });
 
             // }
-
+           
 
             function makeLoopMarker(i) {
                 var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);

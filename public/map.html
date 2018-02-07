@@ -38,7 +38,7 @@
         </div>
 
         <div class="button__section">
-            <button id='find__button'>Find</button>
+            <button id='find__button'>Found</button>
             <button id='lost__button'>Lost</button>
             <button id='random__button'>Random</button>
         </div>
@@ -46,32 +46,34 @@
         <dialog id="find__modal">
             <h4>Find Modal</h4>
             <form id='form__section' action="">
-                Name
-                <input type="text">
+                Email
+                <input type="text" placeholder="someone@example.com" required>
                 Item
-                <input type="text">
+                <input type="text" placeholder="Item Found" required>
                 Description
-                <input type="text">
-                Reward
-                <input type="text">
-                <button id="submit__find">Submit</button>
+                <input type="text" placeholder="Description of Found Item" required>
+                <button id="submit__lost">Submit</button>
             </form>
         </dialog>
 
         <dialog id="lost__modal">
             <h4>Lost Modal</h4>
             <form id='form__section' action="">
-                Name
-                <input type="text" id="lostName">
+                Email
+                <input type="text" id="lostName" placeholder="someone@example.com" required>
                 Item
-                <input type="text" id="lostItem">
+                <input type="text" id="lostItem" placeholder="Lost Item" required>
                 Description
-                <input type="text" id="lostDescription">
+                <input type="text" id="lostDescription" placeholder="Description of Lost Item" required>
+                <!-- Location
+                <input id="autocomplete" class ="aucontainer" type="text" placeholder="Location Item was last seen" required> -->
                 Lat
-                <input type="text" id="lostLat">
+                <input type="text" id="lostLat" required>
                 Long
-                <input type="text" id="lostLong">
-                <button id="submit__lost">Submit</button>
+                <input type="text" id="lostLong" required> 
+                Reward
+                <input type="text" placeholder="Reward if Lost Item is Found" >
+                <button id="submit__find">Submit</button>
             </form>
         </dialog>
 
