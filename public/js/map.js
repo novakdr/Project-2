@@ -12,8 +12,8 @@ if (navigator.geolocation) {
         };
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
            //USE FOR PLACES AUTOCOMPLETE WHEN READY--- works but autocomplete pops up behind the modal still
-        // var input = document.getElementById('autocomplete');
-        // var autocomplete = new google.maps.places.Autocomplete(input);
+        // var input = document.getElementById('autoComplete');
+        // var autoComplete = new google.maps.places.Autocomplete(input);
         // var pacContainerInitialized = false; 
 
         // $('#autocomplete').keypress(function() { 
