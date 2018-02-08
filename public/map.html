@@ -15,6 +15,12 @@
     <link rel="icon" type="image/png" href="./assets/image/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./assets/image/favicon-16x16.png" sizes="16x16" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <!-- PAGE LOADER ANIMATE-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Loading Animation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
     <!-- GOOGLE MAPS API -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBheQz2cT4U5Sx5vt2yniH8mayPRJCKVLI&libraries=places"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
@@ -59,17 +65,26 @@
         </div>
 
         <!-- BUTTON SECTION -->
-        <div class="button__section animated bounceInLeft">
+        <div class="button__section animated jackInTheBox">
 
             <a id='find__button'>
-                <img src='./assets/buttons/lost_button.png'>
+                <img src='./assets/buttons/lost_circle.png'>
             </a>
             <a id='lost__button'>
-                <img src="./assets/buttons/found_button.png">
+                <img src="./assets/buttons/found_circle.png">
             </a>
 
         </div>
 
+        <!-- PAGE LOADER ANIMATE -->
+        <div class="page__loader">
+            <div class="circle"></div>
+            <div class="circle-small"></div>
+            <div class="circle-big"></div>
+            <div class="circle-inner-inner"></div>
+            <div class="circle-inner"></div>
+        </div>
+        
         <!-- MODALS FOR BUTTONS -->
         <dialog id="find__modal">
             <div class="close">
@@ -106,8 +121,12 @@
                 <input type="text" id="lostItem" placeholder="Item Lost" required>
                 <label for="lostDescription">Description</label>
                 <input type="text" id="lostDescription" placeholder="Description of Lost Item" required>
-                <label for="location">Location</label>
+                <label for="autocomplete">Location</label>
                 <input type="text" id="autocomplete" class="aucontainer" placeholder="Location Item Was Last Seen" required>
+                <!-- <label for="lostLat">Lattitude</label>
+                <input type="text" id="lostLat">
+                <label for="lostLong">Longitude</label>
+                <input type="text" id="lostLong"> -->
                 <label for="reward">Reward</label>
                 <input type="text" id="reward" placeholder="Reward For Finding Item" >
                 <button id="submit__lost">Submit</button>
