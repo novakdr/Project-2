@@ -131,3 +131,12 @@ $('.close').on('click', () => {
     $('#lost__modal')[0].close();
     $('#find__modal')[0].close();
 });
+
+//PAGE LOADER ANIMATION//
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function(){
+   if ($('.page__loader').length > 0) {
+     $('.page__loader').remove();
+   }
+ }, 7000)
+ });
