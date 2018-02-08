@@ -101,21 +101,41 @@ $('#submit__lost').on('click', () => {
     var lostName = $("#lostName").val().trim();
     var lostItem = $("#lostItem").val().trim();
     var lostDescription = $("#lostDescription").val().trim();
-    var lostLat = $("#lostLat").val().trim();
-    var lostLong = $("#lostLong").val().trim();
+    //var lostLat = $("#lostLat").val().trim();
+    var lostAutoComplete = $("#autocomplete").val().trim();
+    //var lostLong = $("#lostLong").val().trim();
     var reward = $("#reward").val(); 
     
-    console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
+    //console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
   
-
-    // POST route for saving a new lost item to the database
-    // isLost default value is "TRUE" for the submit_lost modal
+    //Lazy geocoding!
     $.post({
-        url: '/api/new',
-        data: {user: lostName, item: lostItem, description: lostDescription, longitude:lostLong, lattitude:lostLat, reward:0, isLost:true}
-    }).then(function(response){
-        console.log(response);
+        url: '/api/geocode',
+        data: {providedLocation:lostAutoComplete}
+    }).then(function(responseGeo){
+        console.log("****************");
+        console.log(responseGeo.lat);
+        console.log(responseGeo.lng);
+
+        var latFromLocation = responseGeo.lat;
+        var longFromLocation = responseGeo.lng;
+    
+    
+        // POST route for saving a new lost item to the database
+        // isLost default value is "TRUE" for the submit_lost modal
+        $.post({
+            url: '/api/new',
+            data: {user: lostName, item: lostItem, description: lostDescription, longitude:longFromLocation, lattitude:latFromLocation, reward:0, isLost:true}
+        }).then(function(response){
+            console.log(response);
+        })
+    
+    
     })
+
+
+
+    
 
     // CLEARS LOST MODAL
     $("#lostName").val('');
