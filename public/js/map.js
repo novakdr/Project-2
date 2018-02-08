@@ -11,6 +11,20 @@ if (navigator.geolocation) {
             mapTypeId: 'hybrid'
         };
         var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+           //USE FOR PLACES AUTOCOMPLETE WHEN READY--- works but autocomplete pops up behind the modal still
+        // var input = document.getElementById('autoComplete');
+        // var autoComplete = new google.maps.places.Autocomplete(input);
+        // var pacContainerInitialized = false; 
+
+        // $('#autocomplete').keypress(function() { 
+        //         if (!auContainerInitialized) { 
+        //                 $('.aucontainer').css('z-index', '9999'); 
+        //                 auContainerInitialized = true; 
+        //         } 
+        // }); 
+
+
+        
         // var marker = new google.maps.Marker({
         //     position: LatLng,
         //     map: map,
@@ -22,9 +36,7 @@ if (navigator.geolocation) {
         //     var infoWindow = new google.maps.InfoWindow();
         //     infoWindow.setContent(marker.title);
         //     infoWindow.open(map, marker);
-        // });
-
-
+        // })
 
 
 
@@ -48,7 +60,7 @@ if (navigator.geolocation) {
             //     });
 
             // }
-
+           
 
             function makeLoopMarker(i) {
                 var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);
@@ -69,28 +81,11 @@ if (navigator.geolocation) {
                 makeLoopMarker(i);
               
               }
-
-            
         });
-
-
-
     });
 } else {
     alert('Geo Location feature is not supported in this browser.');
 }
-//gofunction
-// function initMap() {
-//         var uluru = {lat: -25.363, lng: 131.044};
-//         var map = new google.maps.Map(document.getElementById('map'), {
-//           zoom: 4,
-//           center: uluru
-//         });
-//         var marker = new google.maps.Marker({
-//           position: uluru,
-//           map: map
-//         });
-//       }
 
 // BUTTONS AND MODAL STUFF
 $('#find__button').on('click', function() {
@@ -99,10 +94,6 @@ $('#find__button').on('click', function() {
 
 $('#lost__button').on('click', () => {
     $('#lost__modal')[0].showModal();
-})
-
-$('#submit__find').on('click', () => {
-    $('#find__modal')[0].close();
 });
 
 $('#submit__lost').on('click', () => {
@@ -112,6 +103,7 @@ $('#submit__lost').on('click', () => {
     var lostDescription = $("#lostDescription").val().trim();
     var lostLat = $("#lostLat").val().trim();
     var lostLong = $("#lostLong").val().trim();
+    var reward = $("#reward").val(); 
     
     console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
   
@@ -120,39 +112,31 @@ $('#submit__lost').on('click', () => {
     // isLost default value is "TRUE" for the submit_lost modal
     $.post({
         url: '/api/new',
-        data: {user: lostName, item: lostItem, description: lostDescription, longitude:lostLong, lattitude:lostLat, reward:0, isLost:true} ,
-        //contentType: 'application/json; charset=utf-8',
-        // success: function (response) {
-        //     alert(response.status);
-        // },
-        // error: function () {
-        //     alert("error");
-        // }
-
+        data: {user: lostName, item: lostItem, description: lostDescription, longitude:lostLong, lattitude:lostLat, reward:0, isLost:true}
     }).then(function(response){
         console.log(response);
     })
 
+    // CLEARS LOST MODAL
     $("#lostName").val('');
     $("#lostItem").val('');
     $("#lostDescription").val('');
     $("#lostLat").val('');
     $("#lostLong").val('');
-
-  $('#lost__modal')[0].close();
-
-
-    
+    $("#lostLong").val('');
+    $("#reward").val(''); 
 });
 
-$('#random__button').on('click', () => {
-    $('#random__modal')[0].showModal();
+$('.close').on('click', () => {
+    $('#lost__modal')[0].close();
+    $('#find__modal')[0].close();
 });
 
-$('#submit__random').on('click', () => {
-    $('#random__modal')[0].close();
-});
-
-
-
-
+//PAGE LOADER ANIMATION//
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function(){
+   if ($('.page__loader').length > 0) {
+     $('.page__loader').remove();
+   }
+ }, 7000)
+ });
