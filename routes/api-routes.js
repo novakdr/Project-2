@@ -1,5 +1,6 @@
 //const Find = require("../models/find.js"); 
 var db = require("../models");
+var fetch = require("node-fetch");
 
 module.exports = (app) => {
 
@@ -84,4 +85,67 @@ app.get("/api/getLatLangsFromDB", (req, res) => {
 
         res.send(true);
       });
+
+
+      app.post("/api/geoCode", (req, res) => {
+        
+        const locationlookup = req.body.providedLocation;
+        const googleMapsAPIKey = "AIzaSyB7-e66d1Ugm1L5ZirOtq_fj6nMsYieeZ0";
+
+        console.log("My Passed in Location is " + locationlookup);
+    
+        var tempURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + locationlookup + "&key=" + googleMapsAPIKey;
+
+        // $.ajax({ 
+        //   type: "GET",
+        //   dataType: "json",
+        //   url: tempURL,
+        //   success: function(data){        
+        //     console.log("*****RESULTS from GOOGLE GEOCODE****");
+        //     console.log(data);
+        //   }
+        // });
+
+        // fetch(tempURL, {
+	      //     method: 'get'
+        // }).then(function(response) {
+        //       console.log("*****RESULTS from GOOGLE GEOCODE****");
+        //       console.log(response);
+        // }).catch(function(err) {
+	      //     // Error :(
+        // });
+
+        fetch(tempURL, function (){
+          console.log("****FETCH*****");
+          console.log(json.results[0].geometry.location);
+        })
+      .then(res => res.json())
+      //.then(json => console.log(json.results[0].geometry.location));
+      .then(json => res.send(json.results[0].geometry.location));
+
+        // fetch(tempURL)
+        // .then((res) => {
+        //   console.log("*****RESULTS from GOOGLE GEOCODE****");
+        //   console.log(res);
+        // })
+        // .then(json => console.log(json));
+        
+
+        // db.Find.create({
+        //   //routeName: routeName,
+        //   user: find.user,
+        //   item: shortItemName,
+        //   description: find.description,
+        //   longitude: find.longitude,
+        //   lattitude:find.lattitude,
+        //   reward: find.reward,
+        //   isLost: find.isLost
+        // });
+
+        //res.send("HDHDHDHDHDH");
+      });
+    
+
+
+  
 }
