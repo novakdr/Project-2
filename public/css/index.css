@@ -1101,19 +1101,23 @@ svg:hover line:nth-child(even) {
 }
 
 .light {
-  height: 70px;
+  height: 190px;
   width: 100vw;
-  background: var(--light-teal);
-  bottom: 220px;
+  /* background: var(--light-teal); */
+  opacity: 0.7;
+  bottom: 400px;
   z-index: -2;
+  display: repeat;
 }
 
 .medium {
-  height: 20px;
+  height: 80px;
   width: 100vw;
   background: var(--medium-teal);
+  /* background: linear-gradient (var(--dark-teal), var(--medium-teal)); */
   bottom: 130px;
   z-index: -1;
+  
 }
 
 /* ABOUT SECTION */
@@ -1122,7 +1126,7 @@ svg:hover line:nth-child(even) {
   grid-template-columns: repeat(3, 1fr);
   padding: 50px 20px;
   grid-gap: 30px;
-  font-family: 'Arial Rounded MT Bold';
+  /* font-family: 'Arial Rounded MT Bold'; */
   font-size: 20px;
 }
 
@@ -1132,7 +1136,7 @@ svg:hover line:nth-child(even) {
   place-items: center center;
   grid-gap: 30px;
   text-align: center;
-  font-family: Arial;
+  font-family: 'Arial Rounded MT Bold';
 }
 
 .about__items > img {
@@ -1215,8 +1219,9 @@ svg:hover line:nth-child(even) {
 
   .heading > h2 {
     padding: 0 50px 0 0;
+    
    }
-
+ 
   .cont > button {
     padding: 0;
     margin: 0;
