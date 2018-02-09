@@ -41,7 +41,7 @@ if (navigator.geolocation) {
 
 
         //  Populate Map Markers
-        $.get("/api/getLatLangsFromDB", function(data) {
+        $.get("/api/getFindsFromDB", function(data) {
             console.log(data);
             
             //Use data from API call to build markers
@@ -64,10 +64,34 @@ if (navigator.geolocation) {
 
             function makeLoopMarker(i) {
                 var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);
+                // Changes the color of the marker based on the reward value.
+                var markerFillColor = "blue";
+                if (data[i].reward <= 30){
+                    markerFillColor = "#228B22";
+                }
+                else if (data[i].reward >30 && data[i].reward <=100){
+                    markerFillColor = "#FFD700";
+                }
+                else if (data[i].reward >= 100){
+                    markerFillColor = "#B22222";
+                }
+                
                 var loopMarker = new google.maps.Marker({
                   position: LatLngLoopMarker,
                   map: map,
-                  title: "<div style = 'height:60px;width:200px;color:black;'><b>Your location:</b><br />Latitude: " + data[i].lat + "<br />Longitude: " + data[i].lng
+                  label: {
+                    color: 'white',
+                    fontWeight: 'bold',
+                    text: data[i].description,
+                  },
+                  icon: {
+                    path: google.maps.SymbolPath.CIRCLE,
+                    scale: 60.5,
+                    fillColor: markerFillColor,
+                    fillOpacity: 0.4,
+                    strokeWeight: 0.4
+                },
+                  title: "<div style = 'height:60px;width:200px;color:black;'><b>Your location:</b><br />Missing Item: " + data[i].item + "<br />Description: " + data[i].description + "<br />Reward: " + data[i].reward
                 });
                 
                 google.maps.event.addListener(loopMarker, "click", function (e) {
@@ -104,7 +128,7 @@ $('#submit__lost').on('click', () => {
     //var lostLat = $("#lostLat").val().trim();
     var lostAutoComplete = $("#autocomplete").val().trim();
     //var lostLong = $("#lostLong").val().trim();
-    var reward = $("#reward").val(); 
+    var lostReward = $("#reward").val(); 
     
     //console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
   
@@ -125,7 +149,7 @@ $('#submit__lost').on('click', () => {
         // isLost default value is "TRUE" for the submit_lost modal
         $.post({
             url: '/api/new',
-            data: {user: lostName, item: lostItem, description: lostDescription, longitude:longFromLocation, lattitude:latFromLocation, reward:0, isLost:true}
+            data: {user: lostName, item: lostItem, description: lostDescription, longitude:longFromLocation, lattitude:latFromLocation, reward:lostReward, isLost:true}
         }).then(function(response){
             console.log(response);
         })
