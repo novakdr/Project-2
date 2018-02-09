@@ -63,13 +63,51 @@ nav > .links {
   color: coral;
 }
 
+.mobile__junk {
+  display: none;
+}
+
 .cta {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center center;
   z-index: 1;
 }
+@keyframes bounceInLeft {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
 
+  0% {
+    opacity: 0;
+    transform: translate3d(-3000px, 0, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(25px, 0, 0);
+  }
+
+  75% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  90% {
+    transform: translate3d(5px, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.bounceInLeft {
+  animation-name: bounceInLeft;
+}
 
 .heading {
   display: grid;
@@ -1088,7 +1126,6 @@ svg:hover line:nth-child(even) {
   font-size: 20px;
 }
 
-
 .about__section > .about__items {
   display: grid;
   grid-template-rows: auto 1fr;
@@ -1103,13 +1140,100 @@ svg:hover line:nth-child(even) {
   height: 100px;
 }
 
-<<<<<<< HEAD
+/* PHONE BREAKPOINT */
+@media screen and (max-width: 420px) {
+  nav > .logo__small {
+    padding: 5px 10px;
+  }
 
+  nav > .links {
+    display: none;
+  }
 
+  .mobile__junk {
+    display: block;
+  }
+  .mobile__junk > .menu {
+    position: absolute;
+    top: -40px;
+    right: 20px;
+    color: white;
+  }
 
-@media screen and (min-width: )
-=======
-@media screen and (min-width: ) {
+  .menu:hover {
+    color: coral;
+  }
+
+  .mobile__links {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    height: 100vh;
+    width: 100%;
+    padding: 20px 0;
+    place-items: center center;
+    z-index: 9999;
+  }
+
+  .mobile__links > .mobile__close {
+    color: var(--light-teal);
+    position: absolute;
+    top: -50px;
+    right: 15px;
+  }
+
+  .mobile__close:hover {
+    cursor: pointer;
+  }
+
+  .mobile__links > a {
+    display: grid;
+    text-decoration: none;
+    color: var(--light-teal);
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    padding: 50px 0;
+    text-transform: uppercase;
+  }
+
+  .left {
+    right: 0;
+  }
   
+  .cta {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .heading {
+    font-size: 22px;
+    padding-left: 55px;
+  }
+
+  .heading > h2 {
+    padding: 0 50px 0 0;
+   }
+
+  .cont > button {
+    padding: 0;
+    margin: 0;
+  }
+
+  .cont > svg {
+    padding: 0;
+    margin: 0;
+  }
+
+  .logo__large > img {
+    width: 300px;
+    align-self: end;
+  }
+
+  .about__section {
+    grid-template-columns: 1fr;
+    grid-gap: 50px;
+  }
 }
->>>>>>> 1ae7804b878a33d12d88fc75288ea14fcde5a793

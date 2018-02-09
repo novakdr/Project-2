@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="./css/reset.css">
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" href="./css/index.css">
+    <!-- ANIMATE (LIBRARY) CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!-- FAVICONS -->
     <link rel="icon" type="image/png" href="./assets/image/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./assets/image/favicon-16x16.png" sizes="16x16" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>
@@ -30,9 +33,23 @@
                     <a href="#about">About</a>
                     <a href="">Features</a>
                     <a href="">News</a>
-
                 </div>
             </nav>
+
+            <div class="mobile__junk">
+                <a href="" class='menu'>
+                    <i class="fas fa-bars"></i>
+                </a>
+                <div class="mobile__links">
+                    <div class="mobile__close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <a href="/">Home</a>
+                    <a href="#about">About</a>
+                    <a href="">Features</a>
+                    <a href="">News</a>
+                </div>
+            </div>
 
             <div class="cta">
                 <div class="heading">
@@ -344,7 +361,7 @@
                             </a>
                 </div>
 
-                <div class="logo__large">
+                <div class="logo__large animated bounceInLeft">
                     <img src="./assets/image/home_image.png" alt="">
                 </div>
             </div>
