@@ -98,7 +98,7 @@ if (navigator.geolocation) {
                     fillOpacity: 0.4,
                     strokeWeight: 0.4
                 },
-                  title: "<div style = 'height:60px;width:200px;color:black;'><b>Your location:</b><br />Missing Item: " + data[i].item + "<br />Description: " + data[i].description + "<br />Reward: " + data[i].reward
+                  title: "<div style = 'height:60px;width:200px;color:black;'><br />Missing Item: " + data[i].item + "<br />Description: " + data[i].description + "<br />Reward: " + data[i].reward
                 });
                 
                 google.maps.event.addListener(loopMarker, "click", function (e) {
