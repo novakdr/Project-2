@@ -66,14 +66,21 @@ if (navigator.geolocation) {
                 var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);
                 // Changes the color of the marker based on the reward value.
                 var markerFillColor = "blue";
-                if (data[i].reward <= 30){
-                    markerFillColor = "#228B22";
+                // if (data[i].reward <= 30){
+                //     markerFillColor = "#228B22";
+                // }
+                // else if (data[i].reward >30 && data[i].reward <=100){
+                //     markerFillColor = "#FFD700";
+                // }
+                // else if (data[i].reward >= 100){
+                //     markerFillColor = "#B22222";
+                // }
+
+                if(data[i].isLost == true){
+                    markerFillColor = "coral";
                 }
-                else if (data[i].reward >30 && data[i].reward <=100){
-                    markerFillColor = "#FFD700";
-                }
-                else if (data[i].reward >= 100){
-                    markerFillColor = "#B22222";
+                else {
+                    markerFillColor = "#549D90";
                 }
                 
                 var loopMarker = new google.maps.Marker({
@@ -99,6 +106,11 @@ if (navigator.geolocation) {
                   infoWindow.setContent(loopMarker.title);
                   infoWindow.open(map, loopMarker);
                 });
+
+                // var infoWindow = new google.maps.InfoWindow();
+                //   infoWindow.setContent(loopMarker.title);
+                //   infoWindow.open(map, loopMarker);
+
               }  
               
               for(var i=0; i < data.length; i++){
@@ -169,6 +181,19 @@ $('#submit__lost').on('click', () => {
     $("#lostLong").val('');
     $("#lostLong").val('');
     $("#reward").val(''); 
+    
+    // Closes the Lost modal
+    $('#lost__modal')[0].close();
+
+    
+    // Wait 4 seconds then reload page.
+    setTimeout(function(){
+        if (true) {
+            location.reload();
+        }
+      }, 4000)
+
+
 });
 
 $('.close').on('click', () => {
