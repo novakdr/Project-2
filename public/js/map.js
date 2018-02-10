@@ -99,7 +99,7 @@ if (navigator.geolocation) {
                     fillOpacity: 0.4,
                     strokeWeight: 0.4
                 },
-                  title: "<div style = 'height:60px;width:200px;color:black;'><b>Your location:</b><br />Missing Item: " + data[i].item + "<br />Description: " + data[i].description + "<br />Reward: " + data[i].reward
+                  title: "<div style = 'height:60px;width:200px;color:black;'><br />Missing Item: " + data[i].item + "<br />Description: " + data[i].description + "<br />Reward: " + data[i].reward
                 });
                 
                 google.maps.event.addListener(loopMarker, "click", function (e) {
@@ -196,7 +196,73 @@ $('#submit__lost').on('click', () => {
 
 
 });
+// ---------------------------------
 
+$('#submit__find').on('click', () => {
+    event.preventDefault();
+    var foundName = $("#findName").val().trim();
+    var foundItem = $("#findItem").val().trim();
+    var findDescription = $("#findDescription").val().trim();
+    //var lostLat = $("#lostLat").val().trim();
+    var findAutoComplete = $("#findAutoComplete").val().trim();
+    //var lostLong = $("#lostLong").val().trim();
+    //var lostReward = $("#reward").val(); 
+    
+    //console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
+  
+    //Lazy geocoding!
+    $.post({
+        url: '/api/geocode',
+        data: {providedLocation:findAutoComplete}
+    }).then(function(findresponseGeo){
+        console.log("****************");
+        console.log(findresponseGeo.lat);
+        console.log(findresponseGeo.lng);
+
+        var findlatFromLocation = findresponseGeo.lat;
+        var findlongFromLocation = findresponseGeo.lng;
+    
+    
+        // POST route for saving a new lost item to the database
+        // isLost default value is "TRUE" for the submit_lost modal
+        $.post({
+            url: '/api/new',
+            data: {user: foundName, item: foundItem, description: findDescription, longitude:findlongFromLocation, lattitude:findlatFromLocation, reward:"-1", isLost:false}
+        }).then(function(response){
+            console.log(response);
+        })
+    
+    
+    })
+
+
+
+    
+
+    // CLEARS FOUND MODAL
+    $("#findName").val('');
+    $("#findItem").val('');
+    $("#findDescription").val('');
+    $("#findAutocomplete").val('');
+     
+    
+    // Closes the Lost modal
+    $('#find__modal')[0].close();
+
+    
+    // Wait 4 seconds then reload page.
+    setTimeout(function(){
+        if (true) {
+            location.reload();
+        }
+      }, 4000)
+
+
+});
+
+
+
+// ----------------------
 $('.close').on('click', () => {
     $('#lost__modal')[0].close();
     $('#find__modal')[0].close();
