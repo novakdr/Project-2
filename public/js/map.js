@@ -1,4 +1,3 @@
-function initMap(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (p) {
         console.log("Detected Latitiude is " + p.coords.latitude);
@@ -42,7 +41,7 @@ if (navigator.geolocation) {
 
 
         //  Populate Map Markers
-        $.get("/api/getFindsFromDB", function(data) {
+        $.get("/api/getLatLangsFromDB", function(data) {
             console.log(data);
             
             //Use data from API call to build markers
@@ -65,41 +64,10 @@ if (navigator.geolocation) {
 
             function makeLoopMarker(i) {
                 var LatLngLoopMarker = new google.maps.LatLng(data[i].lat, data[i].lng);
-                // Changes the color of the marker based on the reward value.
-                var markerFillColor = "blue";
-                // if (data[i].reward <= 30){
-                //     markerFillColor = "#228B22";
-                // }
-                // else if (data[i].reward >30 && data[i].reward <=100){
-                //     markerFillColor = "#FFD700";
-                // }
-                // else if (data[i].reward >= 100){
-                //     markerFillColor = "#B22222";
-                // }
-
-                if(data[i].isLost == true){
-                    markerFillColor = "coral";
-                }
-                else {
-                    markerFillColor = "#549D90";
-                }
-                
                 var loopMarker = new google.maps.Marker({
                   position: LatLngLoopMarker,
                   map: map,
-                  label: {
-                    color: 'white',
-                    fontWeight: 'bold',
-                    text: data[i].description,
-                  },
-                  icon: {
-                    path: google.maps.SymbolPath.CIRCLE,
-                    scale: 60.5,
-                    fillColor: markerFillColor,
-                    fillOpacity: 0.4,
-                    strokeWeight: 0.4
-                },
-                  title: "<div style = 'height:60px;width:200px;color:black;'><br />Missing Item: " + data[i].item + "<br />Description: " + data[i].description + "<br />Reward: " + data[i].reward
+                  title: "<div style = 'height:60px;width:200px;color:black;'><b>Your location:</b><br />Latitude: " + data[i].lat + "<br />Longitude: " + data[i].lng
                 });
                 
                 google.maps.event.addListener(loopMarker, "click", function (e) {
@@ -107,11 +75,6 @@ if (navigator.geolocation) {
                   infoWindow.setContent(loopMarker.title);
                   infoWindow.open(map, loopMarker);
                 });
-
-                // var infoWindow = new google.maps.InfoWindow();
-                //   infoWindow.setContent(loopMarker.title);
-                //   infoWindow.open(map, loopMarker);
-
               }  
               
               for(var i=0; i < data.length; i++){
@@ -141,7 +104,7 @@ $('#submit__lost').on('click', () => {
     //var lostLat = $("#lostLat").val().trim();
     var lostAutoComplete = $("#autocomplete").val().trim();
     //var lostLong = $("#lostLong").val().trim();
-    var lostReward = $("#reward").val(); 
+    var reward = $("#reward").val(); 
     
     //console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
   
@@ -162,7 +125,7 @@ $('#submit__lost').on('click', () => {
         // isLost default value is "TRUE" for the submit_lost modal
         $.post({
             url: '/api/new',
-            data: {user: lostName, item: lostItem, description: lostDescription, longitude:longFromLocation, lattitude:latFromLocation, reward:lostReward, isLost:true}
+            data: {user: lostName, item: lostItem, description: lostDescription, longitude:longFromLocation, lattitude:latFromLocation, reward:0, isLost:true}
         }).then(function(response){
             console.log(response);
         })
@@ -182,104 +145,13 @@ $('#submit__lost').on('click', () => {
     $("#lostLong").val('');
     $("#lostLong").val('');
     $("#reward").val(''); 
-    
-    // Closes the Lost modal
-    $('#lost__modal')[0].close();
-
-    
-    // Wait 4 seconds then reload page.
-    setTimeout(function(){
-        if (true) {
-            location.reload();
-        }
-      }, 4000)
-
-
-});
-// ---------------------------------
-
-$('#submit__find').on('click', () => {
-    event.preventDefault();
-    var foundName = $("#findName").val().trim();
-    var foundItem = $("#findItem").val().trim();
-    var findDescription = $("#findDescription").val().trim();
-    //var lostLat = $("#lostLat").val().trim();
-    var findAutoComplete = $("#findAutoComplete").val().trim();
-    //var lostLong = $("#lostLong").val().trim();
-    //var lostReward = $("#reward").val(); 
-    
-    //console.log(lostName + ' ' + lostItem + ' ' + lostDescription + ' ' + lostLat + ' ' + lostLong);
-  
-    //Lazy geocoding!
-    $.post({
-        url: '/api/geocode',
-        data: {providedLocation:findAutoComplete}
-    }).then(function(findresponseGeo){
-        console.log("****************");
-        console.log(findresponseGeo.lat);
-        console.log(findresponseGeo.lng);
-
-        var findlatFromLocation = findresponseGeo.lat;
-        var findlongFromLocation = findresponseGeo.lng;
-    
-    
-        // POST route for saving a new lost item to the database
-        // isLost default value is "TRUE" for the submit_lost modal
-        $.post({
-            url: '/api/new',
-            data: {user: foundName, item: foundItem, description: findDescription, longitude:findlongFromLocation, lattitude:findlatFromLocation, reward:"-1", isLost:false}
-        }).then(function(response){
-            console.log(response);
-        })
-    
-    
-    })
-
-
-
-    
-
-    // CLEARS FOUND MODAL
-    $("#findName").val('');
-    $("#findItem").val('');
-    $("#findDescription").val('');
-    $("#findAutocomplete").val('');
-     
-    
-    // Closes the Lost modal
-    $('#find__modal')[0].close();
-
-    
-    // Wait 4 seconds then reload page.
-    setTimeout(function(){
-        if (true) {
-            location.reload();
-        }
-      }, 4000)
-
-
 });
 
-
-
-// ----------------------
 $('.close').on('click', () => {
     $('#lost__modal')[0].close();
     $('#find__modal')[0].close();
 });
 
-var input = document.getElementById("autocomplete");
-var autocomplete = new google.maps.places.Autocomplete(input, {types: ['geocode']});
-//var autocomplete = new google.maps.places.SearchBox(input);
-console.log("I'm here");
-console.log(input); 
-autocomplete.addListener('place_changed', fillInAddress);
-function fillInAddress(){
-    var  place = autocomplete.getPlace();
-
-}
-
-}
 //PAGE LOADER ANIMATION//
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function(){
@@ -288,5 +160,3 @@ document.addEventListener('DOMContentLoaded', function() {
    }
  }, 7000)
  });
-
- 

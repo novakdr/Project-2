@@ -14,7 +14,7 @@ module.exports = (app) => {
 
 // Returns th Lat/Lang Array from the DB
 // Will be used by the Google Map marker clustering
-app.get("/api/getFindsFromDB", (req, res) => {
+app.get("/api/getLatLangsFromDB", (req, res) => {
       
   
   db.Find.findAll({}).then((result) => {
@@ -25,7 +25,7 @@ app.get("/api/getFindsFromDB", (req, res) => {
     var locationArray = [];
 
     for(var i=0; i < result.length;i++){
-      var singleLocationLatLong = {"lat":result[i].lattitude, "lng":result[i].longitude, "item":result[i].item, "description":result[i].description, "reward":result[i].reward,  "isLost":result[i].isLost };
+      var singleLocationLatLong = {"lat":result[i].lattitude, "lng":result[i].longitude};
       locationArray.push(singleLocationLatLong);
     }
 
