@@ -1,3 +1,4 @@
+function initMap(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (p) {
         console.log("Detected Latitiude is " + p.coords.latitude);
@@ -267,6 +268,18 @@ $('.close').on('click', () => {
     $('#find__modal')[0].close();
 });
 
+var input = document.getElementById("autocomplete");
+var autocomplete = new google.maps.places.Autocomplete(input, {types: ['geocode']});
+//var autocomplete = new google.maps.places.SearchBox(input);
+console.log("I'm here");
+console.log(input); 
+autocomplete.addListener('place_changed', fillInAddress);
+function fillInAddress(){
+    var  place = autocomplete.getPlace();
+
+}
+
+}
 //PAGE LOADER ANIMATION//
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function(){
@@ -275,3 +288,5 @@ document.addEventListener('DOMContentLoaded', function() {
    }
  }, 7000)
  });
+
+ 
