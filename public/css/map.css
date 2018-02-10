@@ -86,6 +86,7 @@ nav > .links {
   width: 200px;
   height: 200px;
 }
+
 /*==============BUTTON__SECTION ANIMATE=================*/
 @keyframes jackInTheBox {
   from {
@@ -116,6 +117,9 @@ nav > .links {
   cursor: pointer;
   position: relative;
   top: -8px;
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
 }
 
 dialog {
@@ -267,7 +271,7 @@ input[type=text] {
 
 /*==============ROTATE=====================*/
 
-@-moz-keyframes rotate{
+  @-moz-keyframes rotate{
     0% {-moz-transform: rotate(0deg);}
     100% {-moz-transform: rotate(360deg);}
   }
@@ -301,7 +305,7 @@ input[type=text] {
   
  /*==============PULSE======================*/
 
-@-moz-keyframes pulse{
+  @-moz-keyframes pulse{
 	0% {
         -moz-transform: scale(0.1);
         opacity: 0.2;
@@ -316,7 +320,7 @@ input[type=text] {
     }
 }
 
-@-webkit-keyframes pulse{
+  @-webkit-keyframes pulse{
 	0% {
         -webkit-transform: scale(0.1);
         opacity: 0.2;
@@ -331,7 +335,7 @@ input[type=text] {
     }
 }
 
-@keyframes pulse{
+  @keyframes pulse{
 	0% {
         transform: scale(0.1);
         opacity: 0.2;
@@ -347,7 +351,7 @@ input[type=text] {
 }
 
 /* PHONE BREAKPOINT */
-@media screen and (max-width: 420px) {
+  @media screen and (max-width: 420px) {
   nav > .logo__small {
     padding: 5px 10px;
   }
